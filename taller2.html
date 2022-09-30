@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initialscale=1.0">
+    <link rel="stylesheet" href="ingresodatos.css" />
+    <title> TALLER 2 - INGRESO DE DATOS </title>
+</head>
+
+<body>
+
+    <form action="" method="get">
+
+    <section class="form-register">
+        <Center><h4 >Formulario Registro</h4></Center>
+        <input class="Controls" type="text" name="Nombre" id="nombre" placeholder=" Ingrese su nombre "style="font-size: medium " autofocus required />
+        <input class="Controls" type="text" name="Apellido" id="apellido" placeholder=" Ingrese su apellido "style="font-size: medium " autofocus required />
+        <input class="Controls" type="text" name="Cedula" id="ced" placeholder=" Ingrese su cédula " style="font-size: medium;" autofocus required /><br>
+        <input class="Controls" type="email" name="Correo" id="correo" placeholder="Ingrese su correo-> Ej:correo@gmail.com" style="font-size: medium;" required />
+        <input class="Controls" type="tel" name="Telefono" id="cel" placeholder=" Ingrese su teléfono-> Ej:093283382" style="font-size: medium;" required />
+        <input class="Controls" type="text" name="Ciudad" id="ciudad" placeholder="Ingrese su ciudad" style="font-size: medium;" required />
+        <input class="Controls" type="text" name="Direccion" id="direccion" placeholder=" Ingrese su dirección"style="font-size: medium " autofocus required /> 
+        
+        <br> <p>Seleccione su sexo:</p> <br>
+        <center><div class="Controls">
+            <input type="radio" name="Sexo" value="Femenino" id="sex"/>
+            <label for="Femenino">Femenino</label>
+
+            <input type="radio" name="Sexo" value="Masculino" id="sex"/>
+            <label for="Masculino">Masculino</label>
+
+            <input type="radio" name="Sexo" value="Otro" id="sex"/>
+            <label for="Otro">Otro</label>
+        </div></center>
+        <p>Seleccione su estado civil:</p><br>
+
+        <div class="Controls">
+            
+            <input type="radio" name="Estado" id="estado"value="Soltero"/>
+            <label for="Soltero">Soltero</label>
+
+            <input type="radio" name="Estado" id="estado" value="Casado"/>
+            <label for="Casado">Casado</label>
+
+            <input type="radio" name="Estado" id="estado" value="Divorciado"/>
+            <label for="Divorciado">Divorciado</label>
+
+            <input type="radio" name="Estado" id="estado" value="Otro"/>
+            <label for="Otro">Otro</label>
+        </div>
+
+        <input class="botons" type="button" onclick="Validacion()" value="Registrarse">
+
+    </section>
+    
+    <script>
+
+        function Validacion(){
+            var Nombree=document.getElementById("nombre").value;
+            var Apellidoo=document.getElementById("apellido").value;
+            var Cedulaa=document.getElementById("ced").value;
+            var Ciudadd=document.getElementById("ciudad").value;
+            var Correoo=document.getElementById("correo").value;
+            var Telefonoo=document.getElementById("cel").value;
+            var Direccionn=document.getElementById("direccion").value;
+            var Sexoo=document.getElementById("sex").value;
+            var Estadocivill=document.getElementById("estado").value;
+
+            if(Nombree==""){
+                alert("El campo nombre no debe estar vacío. \nComplete el campo.")
+            }
+            
+            if(Apellidoo==""){
+                alert("El campo apellido no debe estar vacío. \nComplete el campo. ")
+
+            }
+            
+            if(Cedulaa==""){
+                alert("El campo cédula no debe estar vacío. \nComplete el campo. ")
+                
+
+            }
+            
+            if(Ciudadd==""){
+                alert("El campo ciudad no debe estar vacío. \nComplete el campo. ")
+
+            }
+            
+            if(Correoo==""){
+                alert("El campo correo no debe estar vacío. \nComplete el campo. ")
+            }
+            
+            if(Telefonoo==""){
+                alert("El campo teléfono no debe estar vacío. \nComplete el campo. ")
+                 
+
+            }
+            
+            if(Direccionn==""){
+                alert("El campo direccion no debe estar vacío. \nComplete el campo. ")
+
+            }
+            
+            if(Sexoo==null){
+                alert("El campo sexo no debe estar vacío. \nComplete el campo. ")
+
+            }
+            
+            if(Estadocivill==null){
+                alert("El campo estado civil no debe estar vacío. \nComplete el campo. ")
+
+            }
+            
+            if( isNaN(Cedulaa) || isNaN(Telefonoo) ) {
+                alert("Nota: La cédula y teléfono deben ser datos numéricos. \nRevise los campos mencionados. ")
+            }   
+            
+            if( !isNaN(Nombree) || !isNaN(Apellidoo) || !isNaN(Ciudadd) || !isNaN(Direccionn)) {
+                alert("En el campo nombre, apellido, ciudad, y dirección no se permiten datos numéricos.  \nRevise los campos mencionados. ")
+            } 
+
+            
+            ValidacionCorreo=/^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+                
+            if(!ValidacionCorreo.exec(Correoo)){
+                alert('Correo no válido. \n Ingrese un correo válido.')
+             
+            }else{
+                GUARDADO();
+            }
+        }
+
+        function GUARDADO(){
+            alert("Los datos han sido enviados sin ningún problema, tenga Buen día.")
+            var Nombreee=document.getElementById("nombre").value="";
+            var Apellidooo=document.getElementById("apellido").value="";
+            var Cedulaaa=document.getElementById("ced").value="";
+            var Ciudaddd=document.getElementById("ciudad").value="";
+            var Correooo=document.getElementById("correo").value="";
+            var Telefonooo=document.getElementById("cel").value="";
+            var Direccionnn=document.getElementById("direccion").value="";
+        }
+    </script>
+
+    </form>
+    
+</body>
+
+</html>
